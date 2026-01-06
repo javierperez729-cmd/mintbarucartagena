@@ -1,14 +1,7 @@
 export default function Home() {
   return (
-    <div
-      style={{
-        backgroundColor: "red",
-        color: "white",
-        padding: "40px",
-        fontSize: "24px",
-      }}
-    >
-      INLINE STYLE TEST — YOU SHOULD SEE THIS
+    <div className="bg-red-500 text-white p-10 text-2xl">
+      TAILWIND TEST — RED BACKGROUND
     </div>
   );
 }
