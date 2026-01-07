@@ -49,12 +49,6 @@ export default function BookingPage() {
           style={inputStyle}
         />
 
-        <input
-          type="Estimated arrival time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-          style={inputStyle}
-        />
 
         <input
           placeholder="Number of nights"
