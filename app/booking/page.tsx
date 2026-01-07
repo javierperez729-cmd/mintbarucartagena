@@ -12,7 +12,7 @@ export default function BookingPage() {
   const handleSubmit = () => {
     const phone = "573504612734"; // 
     const message = encodeURIComponent(
-      `New reservation request:\n\n` +
+      `New stay request:\n\n` +
         `Name: ${name}\n` +
         `Date: ${date}\n` +
         `Time: ${time}\n` +
@@ -33,7 +33,7 @@ export default function BookingPage() {
       }}
     >
       <h1 style={{ fontSize: "2.5rem", marginBottom: "2rem" }}>
-        Book a Table
+        Book your stay
       </h1>
 
       <div style={{ maxWidth: "400px" }}>
@@ -52,14 +52,14 @@ export default function BookingPage() {
         />
 
         <input
-          type="time"
+          type="Estimated arrival time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
           style={inputStyle}
         />
 
         <input
-          placeholder="Number of guests"
+          placeholder="Number of nights"
           value={guests}
           onChange={(e) => setGuests(e.target.value)}
           style={inputStyle}
