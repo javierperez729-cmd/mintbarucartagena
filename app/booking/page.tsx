@@ -1,37 +1,58 @@
-"use client";
-
-import { useState } from "react";
-
 export default function BookingPage() {
-  const [msg, setMsg] = useState("");
-  const [reply, setReply] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  async function send() {
-    setLoading(true);
-    const res = await fetch("/api/booking", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userMessage: msg })
-    });
-    const data = await res.json();
-    setReply(data.reply);
-    setLoading(false);
-  }
-
   return (
-    <div className="max-w-xl mx-auto py-24 px-6">
-      <h1 className="text-4xl mb-6 text-center">Booking Assistant</h1>
+    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: "40px" }}>
+      <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
+        Book a Table
+      </h1>
 
-      <div className="mb-4">
-        <input value={msg} onChange={(e)=>setMsg(e.target.value)} placeholder="e.g. 2 nights, 3 guests" className="w-full p-3 border rounded" />
-      </div>
+      <p style={{ marginBottom: "2rem", opacity: 0.8 }}>
+        Reserve your experience at Mint Barú Cartagena
+      </p>
 
-      <button disabled={loading} onClick={send} className="bg-[#1C1C1C] text-white px-4 py-2 rounded">
-        {loading ? "Thinking..." : "Send"}
-      </button>
+      <form style={{ maxWidth: "400px" }}>
+        <input
+          placeholder="Your name"
+          style={inputStyle}
+        />
+        <input
+          placeholder="WhatsApp number"
+          style={inputStyle}
+        />
+        <input
+          type="date"
+          style={inputStyle}
+        />
+        <input
+          placeholder="Number of guests"
+          style={inputStyle}
+        />
 
-      {reply && <div className="mt-6 p-4 bg-white rounded shadow">{reply}</div>}
-    </div>
+        <button
+          type="submit"
+          style={{
+            padding: "12px",
+            width: "100%",
+            background: "white",
+            color: "black",
+            border: "none",
+            marginTop: "12px",
+            cursor: "pointer",
+          }}
+        >
+          Request Reservation
+        </button>
+      </form>
+    </main>
   );
 }
+
+const inputStyle = {
+  display: "block",
+  width: "100%",
+  padding: "12px",
+  marginBottom: "12px",
+  background: "#111",
+  border: "1px solid #333",
+  color: "white",
+};
+
