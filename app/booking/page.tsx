@@ -33,7 +33,7 @@ export default function BookingPage() {
       }}
     >
       <h1 style={{ fontSize: "2.5rem", marginBottom: "2rem" }}>
-        Book your stay
+        Book Your Stay
       </h1>
 
       <div style={{ maxWidth: "400px" }}>
@@ -71,20 +71,24 @@ export default function BookingPage() {
           onChange={(e) => setNotes(e.target.value)}
           style={{ ...inputStyle, height: "80px" }}
         />
+<button
+  onClick={async () => {
+    const res = await fetch("/api/checkout", { method: "POST" });
+    const data = await res.json();
+    window.location.href = data.url; // redirects to Stripe Checkout
+  }}
+  style={{
+    width: "100%",
+    padding: "12px",
+    background: "white",
+    color: "black",
+    border: "none",
+    cursor: "pointer",
+  }}
+>
+  Pay Deposit & Continue
+</button>
 
-        <button
-          onClick={handleSubmit}
-          style={{
-            width: "100%",
-            padding: "12px",
-            background: "white",
-            color: "black",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          Send via WhatsApp
-        </button>
       </div>
     </main>
   );
