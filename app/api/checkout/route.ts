@@ -13,10 +13,8 @@ export async function POST() {
       {
         price_data: {
           currency: "usd",
-          product_data: {
-            name: "Mint Barú Cartagena – Stay Deposit",
-          },
-          unit_amount: 5000, // $50.00 USD deposit
+          product_data: { name: "Mint Barú Cartagena – Stay Deposit" },
+          unit_amount: 5000, // $50 deposit
         },
         quantity: 1,
       },
