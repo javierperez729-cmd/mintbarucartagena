@@ -5,7 +5,6 @@ import { useState } from "react";
 export default function BookingPage() {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
   const [guests, setGuests] = useState("");
   const [notes, setNotes] = useState("");
 
@@ -15,7 +14,6 @@ export default function BookingPage() {
       `New stay request:\n\n` +
         `Name: ${name}\n` +
         `Date: ${date}\n` +
-        `Time: ${time}\n` +
         `Guests: ${guests}\n` +
         `Notes: ${notes}`
     );
@@ -71,11 +69,23 @@ export default function BookingPage() {
           onChange={(e) => setNotes(e.target.value)}
           style={{ ...inputStyle, height: "80px" }}
         />
+
 <button
   onClick={async () => {
-    const res = await fetch("/api/checkout", { method: "POST" });
-    const data = await res.json();
-    window.location.href = data.url; // redirects to Stripe Checkout
+    try {
+      // Call the Stripe API route
+      const res = await fetch("/api/checkout", { method: "POST" });
+      
+      if (!res.ok) throw new Error("Stripe API failed");
+      
+      const data = await res.json();
+      
+      // Redirect user to Stripe Checkout
+      window.location.href = data.url;
+    } catch (err) {
+      alert("Payment failed. Please try again.");
+      console.error(err);
+    }
   }}
   style={{
     width: "100%",
@@ -88,6 +98,7 @@ export default function BookingPage() {
 >
   Pay Deposit & Continue
 </button>
+
 
       </div>
     </main>
