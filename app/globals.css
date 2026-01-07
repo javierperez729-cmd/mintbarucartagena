@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #F7F6F3;
+:root {
+  --sand: #F7F6F3;
+  --charcoal: #1C1C1C;
+  --muted: #6B6B6B;
+  --accent: #C2A46D;
 }
+
+body { background: var(--sand); color: var(--charcoal); }
