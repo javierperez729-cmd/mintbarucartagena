@@ -17,9 +17,9 @@ export default function Home() {
           Mint Barú Cartagena
         </h1>
 
-        <p style={{ marginBottom: "2rem", opacity: 0.8 }}>
-          Luxury beach experience · Reservations now open
-        </p>
+<p style={{ marginBottom: "2rem", opacity: 0.8 }}>
+  Luxury beach experience · Book Your Stay
+</p>
 
         <div>
           <a
@@ -33,7 +33,7 @@ export default function Home() {
               display: "inline-block",
             }}
           >
-            Book a Table
+            Book Your Stay
           </a>
 
           <a
