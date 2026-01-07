@@ -1,11 +1,12 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center">
-      <h1 className="text-4xl font-light tracking-wide">
-        Mint Barú Cartagena
-      </h1>
+    <main style={{ background: "black", color: "white", minHeight: "100vh", padding: "40px" }}>
+      <h1 style={{ fontSize: "48px" }}>Mint Barú Cartagena</h1>
+      <p style={{ marginTop: "16px" }}>
+        Luxury beach experience · Reservations coming soon
+      </p>
     </main>
-  );
+  )
 }
 
 
