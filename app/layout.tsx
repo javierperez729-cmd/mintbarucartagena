@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Mint Barú Cartagena",
-  description: "Luxury boutique hotel in Barú, Cartagena",
+  description: "Boutique luxury hotel in Barú, Cartagena",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
