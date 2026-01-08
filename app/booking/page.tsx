@@ -66,31 +66,15 @@ export default function BookingPage() {
 
 <button
   onClick={async () => {
-    try {
-      // Call the Stripe API route
-      const res = await fetch("/api/checkout", { method: "POST" });
-      
-      if (!res.ok) throw new Error("Stripe API failed");
-      
-      const data = await res.json();
-      
-      // Redirect user to Stripe Checkout
-      window.location.href = data.url;
-    } catch (err) {
-      alert("Payment failed. Please try again.");
-      console.error(err);
-    }
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+    })
+    const data = await res.json()
+    window.location.href = data.url
   }}
-  style={{
-    width: "100%",
-    padding: "12px",
-    background: "white",
-    color: "black",
-    border: "none",
-    cursor: "pointer",
-  }}
+  className="w-full bg-white text-black py-3 rounded mt-4"
 >
-  Pay Deposit & Continue
+  Pay Deposit
 </button>
 
 
