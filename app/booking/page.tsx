@@ -65,14 +65,12 @@ export default function BookingPage() {
         />
 
 <button
- onClick={() => {
-  console.log(
-    "Stripe key:",
-    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-  );
-  alert("CLICK WORKS");
-}}
-
+  onClick={() => {
+    console.log(
+      "Stripe key:",
+      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    );
+    alert("CLICK WORKS");
   }}
   style={{
     width: "100%",
@@ -85,12 +83,6 @@ export default function BookingPage() {
 >
   Pay Deposit & Continue
 </button>
-
-
-
-
-
-
 
       </div>
     </main>
