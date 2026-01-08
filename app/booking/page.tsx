@@ -65,12 +65,27 @@ export default function BookingPage() {
         />
 
 <button
-  onClick={() => {
-    console.log(
-      "Stripe key:",
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-    );
-    alert("CLICK WORKS");
+  onClick={async () => {
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+      });
+
+      if (!res.ok) {
+        throw new Error("Checkout API failed");
+      }
+
+      const data = await res.json();
+
+      if (!data.url) {
+        throw new Error("No Stripe URL returned");
+      }
+
+      window.location.href = data.url;
+    } catch (err) {
+      console.error("Stripe error:", err);
+      alert("Payment failed. Please try again.");
+    }
   }}
   style={{
     width: "100%",
@@ -83,6 +98,7 @@ export default function BookingPage() {
 >
   Pay Deposit & Continue
 </button>
+
 
       </div>
     </main>
