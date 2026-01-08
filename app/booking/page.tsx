@@ -68,14 +68,15 @@ export default function BookingPage() {
   onClick={async () => {
     const res = await fetch("/api/checkout", {
       method: "POST",
-    })
-    const data = await res.json()
-    window.location.href = data.url
+    });
+    const data = await res.json();
+    window.location.href = data.url;
   }}
-  className="w-full bg-white text-black py-3 rounded mt-4"
+  className="mt-6 w-full bg-white text-black py-3 rounded-lg text-lg font-semibold hover:bg-gray-200 transition"
 >
   Pay Deposit
 </button>
+
 
 
       </div>
