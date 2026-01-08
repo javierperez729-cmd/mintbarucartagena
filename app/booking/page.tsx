@@ -65,8 +65,14 @@ export default function BookingPage() {
         />
 
 <button
-  onClick={() => {
-    alert("CLICK WORKS");
+ onClick={() => {
+  console.log(
+    "Stripe key:",
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  );
+  alert("CLICK WORKS");
+}}
+
   }}
   style={{
     width: "100%",
